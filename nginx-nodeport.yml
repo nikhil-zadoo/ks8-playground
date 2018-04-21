@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: nginx-nodeport
+spec:
+  type: NodePort
+  ports:
+  - port: 8080 # this is the port assigned to the internal service created
+    targetPort: 80
+    nodePort: 30589 # this is the port allocated to the IP of the node. not the internal pod IP.
+  selector:
+    app: nginx
+
