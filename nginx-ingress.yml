@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+spec:
+  rules:
+  - host: ubuntu-s-2vcpu-2gb-fra1-02
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nginx-nodeport
+          servicePort: 8080
